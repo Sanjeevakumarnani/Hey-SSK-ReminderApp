@@ -57,7 +57,7 @@ jobs:
               path.write_text(found)
               print(f"Repaired part{part}")
 
-          chunks = "".join((root / f"part{i:02d}.b64").read_text().strip() for i in range(1, 11)) + "".join((root / "p11" / name).read_text().strip() for name in ["01.b64", "02.b64", "03.b64"])
+          chunks = "".join((root / f"part{i:02d}.b64").read_text().strip() for i in range(1, 12))
           raw = base64.b64decode(chunks, validate=True)
           if hashlib.sha256(raw).hexdigest() != "16cde638f9af3c200d63de860241e2ca7f565c5bf27a6d9db814c2c7ecb45e25":
               raise SystemExit("Final ZIP checksum mismatch")
